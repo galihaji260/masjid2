@@ -26,9 +26,9 @@ class AgendaController extends Controller
                 'jenis' => $request->jenis,
                 'nama_kegiatan' => $request->keyword
             );
-            $agendas = Agenda::search($search);
+            $agendas = Agenda::with(['statusAgenda','pengisiAgenda','pjAgenda'])->search($search);
         } else {
-            $agendas = Agenda::all();
+            $agendas = Agenda::with(['statusAgenda','pengisiAgenda','pjAgenda'])->get();
         }
         $tahun = ['2022' => '2022', '2023' => '2023'];
         $bulan = [

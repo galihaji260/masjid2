@@ -11,6 +11,18 @@ class Agenda extends Model
 
     protected $fillable = ['nama_kegiatan', 'tanggal', 'penanggung_jawab', 'pengisi', 'jenis', 'status','divisi'];
 
+    public function statusAgenda(){
+        return $this->belongsTo(StatusKegiatan::class,'status');
+    }
+
+    public function pengisiAgenda(){
+        return $this->belongsTo(PersonalData::class,'pengisi');
+    }
+
+    public function pjAgenda(){
+        return $this->belongsTo(PersonalData::class,'penanggung_jawab');
+    }
+
     public static function search($data)
     {
         $self =self::where(function ($query) use ($data) {
