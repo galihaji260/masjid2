@@ -77,10 +77,10 @@
                     <td>{{ $pasaran->getHari($agenda->tanggal) }}</td>
                     <td>{{ $pasaran->getPasaran($agenda->tanggal) }}</td>
                     <td>{{$agenda->tanggal}}</td>
-                    <td>{{$agenda->penanggung_jawab}}</td>
-                    <td>{{$agenda->pengisi}}</td>
+                    <td>{{$agenda->pjAgenda->nama}}</td>
+                    <td>{{$agenda->pengisiAgenda->nama}}</td>
                     <td>{{$agenda->jenis}}</td>
-                    <td><span style="background-color: {{ $color[$agenda->status] ?? '#ffffff' }}; color:#ffffff; padding: 0.375rem 0.75rem;">{{$agenda->status}}</span></td>
+                    <td><span style="background-color: {{ $color[$agenda->statusAgenda->nama] ?? '#ffffff' }}; color:black; padding: 0.375rem 0.75rem;">{{$agenda->statusAgenda->nama}}</span></td>
                     <td>
                       <form action="{{ route('agenda.destroy', $agenda->id) }}" method="POST">
                         <a class="" href="{{ route('agenda.edit', $agenda->id) }}">

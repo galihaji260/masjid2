@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class StatusKegiatan extends Model
 {
     use HasFactory;
+
+    public function agendaStatus(){
+        return $this->hasMany(Agenda::class,'status');
+    }
 }
